@@ -1,0 +1,16 @@
+{
+  "uuid": "gold-rate@gold-rate.local",
+  "name": "Gold Rate",
+  "description": "Gold spot prices in your top bar, with selectable currency, grams or troy ounces, and automatic updates. Free API; no key required.",
+  "shell-version": [
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50"
+  ],
+  "settings-schema": "org.gnome.shell.extensions.gold-rate",
+  "version": 3,
+  "url": "https://github.com/user9091/gnome-gold-rate"
+}

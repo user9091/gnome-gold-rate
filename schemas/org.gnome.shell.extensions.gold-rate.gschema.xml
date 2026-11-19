@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.gold-rate" path="/org/gnome/shell/extensions/gold-rate/">
+    <key name="currency" type="s">
+      <choices>
+        <choice value="USD"/><choice value="EUR"/><choice value="GBP"/>
+        <choice value="JPY"/><choice value="CAD"/><choice value="AUD"/>
+        <choice value="CHF"/><choice value="CNY"/><choice value="HKD"/>
+        <choice value="SGD"/><choice value="SEK"/><choice value="NOK"/>
+        <choice value="DKK"/><choice value="NZD"/><choice value="MXN"/>
+        <choice value="INR"/><choice value="BRL"/><choice value="ZAR"/>
+        <choice value="KRW"/>
+      </choices>
+      <default>'USD'</default>
+      <summary>Display currency</summary>
+    </key>
+    <key name="unit" type="s">
+      <choices><choice value="gram"/><choice value="ounce"/></choices>
+      <default>'gram'</default>
+      <summary>Weight unit</summary>
+      <description>An ounce means a troy ounce, exactly 31.1034768 grams.</description>
+    </key>
+    <key name="quantity" type="i">
+      <range min="1" max="1000"/>
+      <default>1</default>
+      <summary>Number of grams or troy ounces</summary>
+    </key>
+    <key name="refresh-seconds" type="i">
+      <range min="30" max="3600"/>
+      <default>60</default>
+      <summary>Automatic refresh interval in seconds</summary>
+    </key>
+    <key name="decimal-places" type="i">
+      <range min="0" max="4"/>
+      <default>2</default>
+      <summary>Decimal places in the price</summary>
+    </key>
+  </schema>
+</schemalist>
