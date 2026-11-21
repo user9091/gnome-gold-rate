@@ -69,7 +69,7 @@ export default class GoldRateExtension extends Extension {
             if (key === 'currency')
                 this._refresh(state);
         });
-        this._indicator.menu.connect('open-state-changed', () => this._render(state));
+        this._menuSignal = this._indicator.menu.connect('open-state-changed', () => this._render(state));
         Main.panel.addToStatusArea(this.uuid, this._indicator);
         this._schedule(state);
         this._refresh(state);
@@ -186,6 +186,19 @@ export default class GoldRateExtension extends Extension {
             state.request?.cancellable.cancel();
             state.session.abort();
         }
+        if (this._menuSignal) {
+            this._indicator.menu.disconnect(this._menuSignal);
+            this._menuSignal = null;
+        }
+        // Destroy referenced children before their parent so ownership and cleanup
+        // are explicit. The panel button destroys the remaining menu and box.
+        this._icon?.destroy();
+        this._label?.destroy();
+        this._priceItem?.destroy();
+        this._statusItem?.destroy();
+        this._currencyMenu?.destroy();
+        this._unitMenu?.destroy();
+        this._refreshItem?.destroy();
         this._indicator?.destroy();
         this._indicator = null;
         this._icon = null;
